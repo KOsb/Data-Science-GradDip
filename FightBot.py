@@ -19,22 +19,20 @@ def player_turn(name, botHP, yourHP):
 		dam1 = random.randint(10, 35)
 		botHP = botHP - dam1
 		print("It dealt %s damage!" % (dam1))
-		return [botHP, yourHP]
 	elif move_choice == 2:
 		print("%s used Garbage" % name)
 		dam2 = random.randint(1, 55)
 		botHP = botHP - dam2
 		print("It dealt %s damage!" % (dam2))
-		return [botHP, yourHP]
 	elif move_choice == 3:
 		print("%s used Pizza" % name)
 		heal1 = random.randint(5, 15)
 		yourHP = yourHP + heal1
 		print("It healed %s." % (heal1))
-		return [botHP, yourHP]
 	else:
 		print("That's not a move")
 		player_turn(name, botHP, yourHP)
+	return [botHP, yourHP]
 #function to run the bot's turn using a random move and return the new HP values
 def bot_turn(name, botHP, yourHP):
 	move_choice = random.randint(1,3)
@@ -43,19 +41,18 @@ def bot_turn(name, botHP, yourHP):
 		dam1 = random.randint(10, 35)
 		yourHP = yourHP - dam1
 		print("It dealt %s damage!" % (dam1))
-		return [botHP, yourHP]
 	elif move_choice == 2:
 		print("Opponent used Garbage")
 		dam2 = random.randint(1, 55)
 		yourHP = yourHP - dam2
 		print("It dealt %s damage!" % (dam2))
-		return [botHP, yourHP]
 	elif move_choice == 3:
 		print("Opponent used Pizza")
 		heal1 = random.randint(5, 15)
 		botHP = botHP + heal1
 		print("Opponent healed %s." % (heal1))
-		return [botHP, yourHP]
+	return [botHP, yourHP]
+
 #Initialise variables
 dead_check = True
 turn_check = True
@@ -74,7 +71,7 @@ while dead_check:
 		if health[1] <=0:
 			your_HP = 0
 		print("Your HP: %s    Opponent HP: %s" % (your_HP, bot_HP))
-		dead_check = (health[0] > 0) and (health[1] > 0)
+		dead_check = ((health[0]) > 0) and ((health[1]) > 0)
 		if dead_check == False:
 			print("Game over!")
 			again = str(input('Do you want to play again? Y/N')) in dbry
@@ -93,6 +90,7 @@ while dead_check:
 		if health[1] <=0:
 			your_HP = 0
 		print("Your HP: %s    Opponent HP: %s" % (your_HP, bot_HP))
+		dead_check = ((health[0]) > 0) and ((health[1]) > 0)
 		if dead_check == False:
 			print("Game over!")
 			again = str(input('Do you want to play again? Y/N')) in dbry
