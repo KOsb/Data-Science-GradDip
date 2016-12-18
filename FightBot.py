@@ -10,21 +10,24 @@ bot_HP = 100
 
 #function to take the player's move choice, run the turn and return the new HP values
 def player_turn(name, botHP, yourHP):
+	house = 1
+	garbage = 2
+	pizza = 3
 	move_choice = int(input("Enter a number from 1 to 3 to choose a move: "
 							"1. House (dm 10-35) "
 							"2. Garbage (dm 1-55 "
 							"3. Pizza (heal 5-15)"))
-	if move_choice == 1:
+	if move_choice == house:
 		print("%s used House" % name)
 		dam1 = random.randint(10, 35)
 		botHP = botHP - dam1
 		print("It dealt %s damage!" % (dam1))
-	elif move_choice == 2:
+	elif move_choice == garbage:
 		print("%s used Garbage" % name)
 		dam2 = random.randint(1, 55)
 		botHP = botHP - dam2
 		print("It dealt %s damage!" % (dam2))
-	elif move_choice == 3:
+	elif move_choice == pizza:
 		print("%s used Pizza" % name)
 		heal1 = random.randint(5, 15)
 		yourHP = yourHP + heal1
@@ -35,18 +38,21 @@ def player_turn(name, botHP, yourHP):
 	return [botHP, yourHP]
 #function to run the bot's turn using a random move and return the new HP values
 def bot_turn(name, botHP, yourHP):
+	house = 1
+	garbage = 2
+	pizza = 3
 	move_choice = random.randint(1,3)
-	if move_choice == 1:
+	if move_choice == house:
 		print("Opponent used House")
 		dam1 = random.randint(10, 35)
 		yourHP = yourHP - dam1
 		print("It dealt %s damage!" % (dam1))
-	elif move_choice == 2:
+	elif move_choice == garbage:
 		print("Opponent used Garbage")
 		dam2 = random.randint(1, 55)
 		yourHP = yourHP - dam2
 		print("It dealt %s damage!" % (dam2))
-	elif move_choice == 3:
+	elif move_choice == pizza:
 		print("Opponent used Pizza")
 		heal1 = random.randint(5, 15)
 		botHP = botHP + heal1
