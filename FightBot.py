@@ -72,7 +72,7 @@ while dead_check:
 			your_HP = 0
 		print("Your HP: %s    Opponent HP: %s" % (your_HP, bot_HP))
 		dead_check = ((health[0]) > 0) and ((health[1]) > 0)
-		if dead_check == False:
+		if not dead_check:
 			print("Game over!")
 			again = str(input('Do you want to play again? Y/N')) in dbry
 			dead_check = again
@@ -91,13 +91,13 @@ while dead_check:
 			your_HP = 0
 		print("Your HP: %s    Opponent HP: %s" % (your_HP, bot_HP))
 		dead_check = ((health[0]) > 0) and ((health[1]) > 0)
-		if dead_check == False:
+		if (not dead_check):
 			print("Game over!")
-			again = str(input('Do you want to play again? Y/N')) in dbry
-			dead_check = again
+			dead_check = str(input('Do you want to play again? Y/N')) in dbry
 			turn_check2 = False
 			your_HP = 100
 			bot_HP = 100
 		turn_check2 = False
 #end
 print('Thanks for playing FightBot')
+
